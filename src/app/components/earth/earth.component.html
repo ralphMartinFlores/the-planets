@@ -1,0 +1,58 @@
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="over">
+      <app-sidenav></app-sidenav>
+    </mat-drawer>
+    <mat-drawer-content>
+        <mat-toolbar color="primary">
+            <mat-toolbar-row>
+              <span>THE PLANETS</span>
+              <span class="example-spacer"></span>
+              <div class="planet__links">
+                <a routerLink="/mercury">Mercury</a>
+                <a routerLink="/venus">Venus</a>
+                <a routerLink="/earth" class="planet__links--active">Earth</a>
+                <a routerLink="/mars">Mars</a>
+                <a routerLink="/jupiter">Jupiter</a>
+                <a routerLink="/saturn">Saturn</a>
+                <a routerLink="/uranus">Uranus</a>
+                <a routerLink="/neptune">Neptune</a>
+              </div>
+              <button (click)="drawer.toggle()" mat-icon-button class="planet__hamburger" aria-label="Example icon-button with menu icon">
+                <mat-icon>menu</mat-icon>
+              </button>
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <mat-tab-group animationDuration="0ms" (selectedTabChange)="setData($event)">
+            <mat-tab [label]="info.name" *ngFor="let info of planetInformation; let i = index">
+                <div class="container">
+                    <div class="planet__image__container">
+                        <img src="../../../assets/images/{{ info.imagename }}.svg" alt="">
+                        <img src="../../../assets/images/{{ info.supportingimagename }}.png" alt="">
+                        <div class="planet__description__container">
+                            <h1>Earth</h1>
+                            <p>{{ info.description }}</p>
+                        </div>
+                    </div>
+                    <div class="planet__stats__container">
+                        <div class="planet__stat">
+                          <p class="planet_stat__header">Rotation Time</p>
+                          <p class="planet_stat__detail">{{ info.rotation }} days</p>
+                        </div>
+                        <div class="planet__stat">
+                          <p class="planet_stat__header">Revolution Time</p>
+                          <p class="planet_stat__detail">{{ info.revolution }} days</p>
+                        </div>
+                        <div class="planet__stat">
+                          <p class="planet_stat__header">Radius</p>
+                          <p class="planet_stat__detail">{{ info.radius }} km</p>
+                        </div>
+                        <div class="planet__stat">
+                          <p class="planet_stat__header">Average Temp</p>
+                          <p class="planet_stat__detail">{{ info.temperature }}°C</p>
+                        </div>
+                      </div>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-drawer-content>
+</mat-drawer-container>

@@ -1,0 +1,157 @@
+mat-drawer-container {
+    height: 100%;
+    background-color: #070722;
+    color: #FFF;
+}
+mat-drawer-content {
+    background-image: url("../../../assets/images/background-stars.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.planet__image__container {
+    text-align: center;
+    img {
+        width: 50%;
+        padding: 4rem 0;
+    }
+    img:last-of-type {
+        position: absolute;
+        max-width: 5rem;
+        left: 50%;
+        top: 25%;
+        transform: translateX(-50%);
+        padding: 0;
+    }
+}
+.planet__description__container, .planet__stats__container {
+    padding: 0 1.5rem;
+}
+.planet__description__container {
+    text-align: center;
+    line-height: 1.7;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.75em, 2.5vw, 1em);
+    h1 {
+        font-family: 'Bebas Neue', cursive;
+        letter-spacing: 2px;
+        font-size: clamp(2em, 5vw, 4em);
+    }
+}
+.planet__stats__container {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    margin: 1.5rem 0;
+}
+.planet__stat {
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+.planet_stat__header {
+    font-size: clamp(0.75em, 2.5vw, 0.875em);
+}
+.planet_stat__detail {
+    font-size: clamp(0.875em, 2.5vw, 1.75em);
+}
+.planet__links {
+    display: none;
+}
+// Tablet Styles
+@media screen and (min-width: 48rem) {
+    .planet__image__container {
+        display: flex;
+        align-items: center;
+        padding: 2rem 4rem;
+        gap: 2rem;
+        .planet__description__container {
+            h1 {
+                text-align: left;
+            }
+            p {
+                text-align: justify;
+            }
+        }
+        img:last-of-type {
+            max-width: 8rem;
+            left: 29.5%;
+            top: 40%;
+            padding: 0;
+        }
+    }
+    .planet__description__container {
+        padding: 0;
+    }
+    .planet__stats__container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 0 4rem;
+    }
+    .planet_stat__detail {
+        font-family: 'Bebas Neue', cursive;
+    }
+}
+// Desktop Styles
+@media screen and (min-width: 64.063rem) {
+    .container {
+        max-width: 70%;
+        margin: 0 auto;
+    }
+    .planet__image__container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        .planet__description__container {
+            p {
+                text-align: justify;
+            }
+        }
+        img {
+            width: 60%;
+            margin: 0 auto;
+        }
+        img:last-of-type {
+            max-width: 10rem;
+            left: 33.7%;
+            top: 40%;
+            padding: 0;
+
+        }
+    }
+    .planet__stats__container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .planet__stat {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    .planet__links {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        a {
+            font-family: 'Bebas Neue', cursive;
+            letter-spacing: 1px;
+            border-bottom: 2px solid transparent;
+            transition: all .3s;
+            color: rgba(255, 255, 255, 0.7);
+            &:hover {
+                color: #FFF;
+                border-bottom: 2px solid white;
+            }
+        }
+        .planet__links--active {
+            color: #2d68f0;
+            border-bottom: 2px solid #2d68f0;
+        }
+    }
+    .planet__hamburger {
+        display: none;
+    }
+}
